@@ -22,8 +22,14 @@ pub fn process_instruction(
         .split_first()
         .ok_or(ProgramError::InvalidInstructionData)?;
 
+    let lamports = ix_data
+        .get(..8)
+        .and_then(|bytes| bytes.try_into().ok())
+        .map(u64::from_le_bytes)
+        .ok_or(ProgramError::InvalidInstructionData)?;
+
     match VaultInstruction::try_from(discriminator)? {
-        VaultInstruction::Deposit => instructions::deposit(accounts, ix_data),
-        VaultInstruction::Withdraw => instructions::withdraw(accounts, ix_data),
+        VaultInstruction::Deposit => instructions::deposit(accounts, lamports),
+        VaultInstruction::Withdraw => instructions::withdraw(accounts, lamports),
     }
 }
