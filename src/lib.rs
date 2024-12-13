@@ -10,7 +10,7 @@ mod tests;
 
 entrypoint!(process_instruction);
 
-const ID: Pubkey = pubkey!("tjGXp9aPM7WNcMpBqAtDVVkZMjJAACvW1BE9ADgPEeV");
+const ID: Pubkey = pubkey!("9HFegTZnvebYjf9kSa6k3WBm93hRfogWB5B1goUrq1oL");
 
 pub fn process_instruction(
     program_id: &Pubkey,

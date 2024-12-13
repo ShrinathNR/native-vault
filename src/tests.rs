@@ -9,7 +9,7 @@ mod tests {
         let program_id = pubkey!("9HFegTZnvebYjf9kSa6k3WBm93hRfogWB5B1goUrq1oL");
 
         let signer = Pubkey::new_unique();
-        let vault = Pubkey::try_find_program_address(&[signer.as_ref()], &program_id)
+        let vault = Pubkey::try_find_program_address(&[b"vault", signer.as_ref()], &program_id)
             .unwrap()
             .0;
         let (system_program, system_program_account) = program::keyed_account_for_system_program();
@@ -44,7 +44,7 @@ mod tests {
         let program_id = pubkey!("9HFegTZnvebYjf9kSa6k3WBm93hRfogWB5B1goUrq1oL");
 
         let signer = Pubkey::new_unique();
-        let vault = Pubkey::try_find_program_address(&[signer.as_ref()], &program_id)
+        let vault = Pubkey::try_find_program_address(&[b"vault", signer.as_ref()], &program_id)
             .unwrap()
             .0;
         let (system_program, system_program_account) = program::keyed_account_for_system_program();
