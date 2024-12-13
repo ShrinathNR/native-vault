@@ -5,6 +5,9 @@ use solana_program::{account_info::AccountInfo, entrypoint, pubkey::Pubkey};
 mod instructions;
 use instructions::VaultInstruction;
 
+#[cfg(test)]
+mod tests;
+
 entrypoint!(process_instruction);
 
 const ID: Pubkey = pubkey!("tjGXp9aPM7WNcMpBqAtDVVkZMjJAACvW1BE9ADgPEeV");

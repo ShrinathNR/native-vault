@@ -8,4 +8,8 @@ name = "native_vault"
 crate-type = ["cdylib", "lib"]
 
 [dependencies]
-solana-program = "2.1.5"
+solana-program = "2.0.1"
+
+[dev-dependencies]
+mollusk-svm = { git = "https://github.com/buffalojoec/mollusk.git" }
+solana-sdk = "2.0.1"
